@@ -23,6 +23,8 @@
     "ng-table": "^2.1.0",
     "mfly-commands": "^1.13.0",
     "angular-material": "^1.1.1",
-    "ang-accordion": "*"
+    "ang-accordion": "*",
+    "angular-material-icons": "^0.7.1",
+    "material-design-icons": "^3.0.1"
   }
 }

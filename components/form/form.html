@@ -1,18 +1,12 @@
 <md-toolbar class="md-hue-2">
       <div class="md-toolbar-tools">
-        <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
-          <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+        <md-button class="md-icon-button" aria-label="Settings">
+          <i class="material-icons md-light">menu</i>
         </md-button>
         <h2>
           <span>Customer Survey</span>
         </h2>
         <span flex></span>
-        <md-button class="md-icon-button" aria-label="Favorite">
-          <md-icon md-svg-icon="img/icons/favorite.svg" style="color: greenyellow;"></md-icon>
-        </md-button>
-        <md-button class="md-icon-button" aria-label="More">
-          <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
-        </md-button>
       </div>
 </md-toolbar>
   
@@ -38,8 +32,12 @@
                 <div layout-gt-sm="row">
                   <md-input-container class="md-block" flex-gt-sm>
                     <label>{{input.inputTitle}}</label>
-                    <input ng-model="input.value">
+                    <input ng-if="input.type !== 'boolean'" ng-model="input.value">
+                    <md-switch ng-if="input.type === 'boolean'" ng-model="input.value">
+                      {{input.value}}
+                    </md-switch>
                   </md-input-container>
+
                 </div>
 
               </form>
