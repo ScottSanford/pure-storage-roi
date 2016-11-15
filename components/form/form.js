@@ -1,13 +1,13 @@
 angular.module('pureStorageApp')
 
-.controller('FormCtrl', function($scope, TabData){
-
-	console.log('click');
+.controller('FormCtrl', function($scope, TabData, $mdSidenav){
 
 	var data = TabData.customerSurvey;
-	console.log(data);
-
-	
 	$scope.tabs = data;
+
+	$scope.openLeftMenu = function() {
+	    $mdSidenav('left').toggle();
+	};
+
 
 });

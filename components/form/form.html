@@ -1,21 +1,13 @@
-<md-toolbar class="md-hue-2">
-      <div class="md-toolbar-tools">
-        <md-button class="md-icon-button" aria-label="Settings">
-          <i class="material-icons md-light">menu</i>
-        </md-button>
-        <h2>
-          <span>Customer Survey</span>
-        </h2>
-        <span flex></span>
-      </div>
-</md-toolbar>
-  
-  <md-tabs md-dynamic-height>
-    <md-tab ng-repeat="tab in tabs" 
-            label="{{tab.title}}">
+<menu-header></menu-header>
+
+<div id="calculator-container">
+  <md-tabs md-dynamic-height class="padding-top-20">
+
+    <md-tab ng-repeat="tab in tabs" label="{{tab.title}}">
       <md-content class="md-padding">
-    
+
         <div ng-repeat="t in tab.categories">
+          
           <md-toolbar class="tab-color">
             <div class="md-toolbar-tools tab-color">
               <h2>
@@ -26,6 +18,7 @@
           </md-toolbar>
 
           <md-content>
+            
             <div ng-repeat="input in t.inputs">
               <form name="userForm">
 
@@ -33,8 +26,8 @@
                   <md-input-container class="md-block" flex-gt-sm>
                     <label>{{input.inputTitle}}</label>
                     <input ng-if="input.type !== 'boolean'" ng-model="input.value">
-                    <md-switch ng-if="input.type === 'boolean'" ng-model="input.value">
-                      {{input.value}}
+                    <md-switch class="md-primary" ng-if="input.type === 'boolean'" ng-model="input.value">
+                      <span yes-no="input.value"></span>
                     </md-switch>
                   </md-input-container>
 
@@ -42,6 +35,7 @@
 
               </form>
             </div>
+            
           </md-content>
 
         </div>
@@ -49,4 +43,6 @@
       </md-content>
     </md-tab>
   </md-tabs>
+</div>
+
  

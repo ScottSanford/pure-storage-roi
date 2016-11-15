@@ -26,23 +26,6 @@ angular.module('pureStorageApp')
                     value: true
                   }
                 ]
-              },
-              {
-                subTitle: "Workload Mix",
-                inputs: [
-                  {
-                    inputTitle: 'Generic VSI',
-                    type: 'number'
-                  },
-                  {
-                    inputTitle: 'SQL Server',
-                    type: 'number'
-                  },
-                  {
-                    inputTitle: 'VDI',
-                    type: 'number'
-                  }
-                ]
               }
           ]
         }, 
@@ -70,19 +53,6 @@ angular.module('pureStorageApp')
                     type: 'text'
                   }
                 ]
-              },
-              {
-                subTitle: "Pure Solution Costs",
-                inputs: [
-                  {
-                    inputTitle: 'Include Forever Flash?',
-                    type: 'boolean'
-                  },
-                  {
-                    inputTitle: 'Average UpgradeFlex CAPEX as % of Initial Purchase',
-                    type: 'number'
-                  }
-                ]
               }
           ]
         }, 
@@ -90,7 +60,7 @@ angular.module('pureStorageApp')
           title: 'Disk/Retrofit', 
           categories: [
               {
-                subTitle: "Across All Workloads",
+                subTitle: "Disk/Retrofit Inputs",
                 inputs: [
                   {
                     inputTitle: 'Minimum Year 1 Capacity Required (Effective TBs)',
@@ -98,29 +68,12 @@ angular.module('pureStorageApp')
                     value: null
                   },
                   {
-                    inputTitle: 'Annual Storage Expansion Growth Rate (CAGR)',
+                    inputTitle: 'Year 1 Purchased Effective Capacity (Effective TBs) - If Overprovisioned',
                     type: 'text'
                   },
                   {
-                    inputTitle: 'Factor in Thin Provisioning?',
+                    inputTitle: 'Excess Capacity Purchased in Year 1 (above Minimum)',
                     type: 'boolean'
-                  }
-                ]
-              },
-              {
-                subTitle: "Workload Mix",
-                inputs: [
-                  {
-                    inputTitle: 'Generic VSI',
-                    type: 'number'
-                  },
-                  {
-                    inputTitle: 'SQL Server',
-                    type: 'number'
-                  },
-                  {
-                    inputTitle: 'VDI',
-                    type: 'number'
                   }
                 ]
               }

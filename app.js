@@ -3,7 +3,8 @@ angular.module("pureStorageApp", [
         'ui.router', 
         'angAccordion', 
         'ngMaterial', 
-        'ngMdIcons'
+        'ngMdIcons', 
+        'myDirectives'
     ])
 
     .config(function ($compileProvider, $stateProvider, $urlRouterProvider, $mdIconProvider) { 
