@@ -21,6 +21,8 @@
     "font-awesome": "^4.7.0",
     "angular-ui-router": "^0.3.2",
     "ng-table": "^2.1.0",
-    "mfly-commands": "^1.13.0"
+    "mfly-commands": "^1.13.0",
+    "angular-material": "^1.1.1",
+    "ang-accordion": "*"
   }
 }

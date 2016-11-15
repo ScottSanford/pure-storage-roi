@@ -1,6 +1,8 @@
 angular.module("pureStorageApp", [
         'ui.bootstrap', 
-        'ui.router'
+        'ui.router', 
+        'angAccordion', 
+        'ngMaterial'
     ])
 
     .config(function ($compileProvider, $stateProvider, $urlRouterProvider) { 
@@ -15,7 +17,12 @@ angular.module("pureStorageApp", [
                 .state('form', {
                     url: '/form',
                     templateUrl: 'components/form/form.html', 
-                    controller: 'FormCtrl'
+                    controller: 'FormCtrl', 
+                    resolve: {
+                        tabs: function(TabData){
+                          return TabData;
+                        }
+                    }
                 });
 
     });

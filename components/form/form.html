@@ -1,55 +1,54 @@
-<form class="form-horizontal">
-<fieldset>
-
-<!-- Form Name -->
-<legend>Input Survey - with Customer</legend>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Minimum Year 1 Capacity Required (Effective TBs)</label>  
-  <div class="col-md-4">
-  <input id="textinput" name="textinput" type="text" placeholder="10.0" class="form-control input-md">
+<md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
+          <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+        </md-button>
+        <h2>
+          <span>Customer Survey</span>
+        </h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Favorite">
+          <md-icon md-svg-icon="img/icons/favorite.svg" style="color: greenyellow;"></md-icon>
+        </md-button>
+        <md-button class="md-icon-button" aria-label="More">
+          <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
+        </md-button>
+      </div>
+</md-toolbar>
+  
+  <md-tabs md-dynamic-height>
+    <md-tab ng-repeat="tab in tabs" 
+            label="{{tab.title}}">
+      <md-content class="md-padding">
     
-  </div>
-</div>
+        <div ng-repeat="t in tab.categories">
+          <md-toolbar class="tab-color">
+            <div class="md-toolbar-tools tab-color">
+              <h2>
+                <span>{{t.subTitle}}</span>
+              </h2>
+              <span flex></span>
+            </div>
+          </md-toolbar>
 
-<!-- Select Multiple -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="selectmultiple">Select Multiple</label>
-  <div class="col-md-4">
-    <select id="selectmultiple" name="selectmultiple" class="form-control" multiple="multiple">
-      <option value="1">Option one</option>
-      <option value="2">Option two</option>
-    </select>
-  </div>
-</div>
+          <md-content>
+            <div ng-repeat="input in t.inputs">
+              <form name="userForm">
 
-<!-- Multiple Checkboxes -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="checkboxes">Include Forever Flash?</label>
-  <div class="col-md-4">
-  <div class="checkbox">
-    <label for="checkboxes-0">
-      <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
-      Yes
-    </label>
-	</div>
-  <div class="checkbox">
-    <label for="checkboxes-1">
-      <input type="checkbox" name="checkboxes" id="checkboxes-1" value="2">
-      No
-    </label>
-	</div>
-  </div>
-</div>
+                <div layout-gt-sm="row">
+                  <md-input-container class="md-block" flex-gt-sm>
+                    <label>{{input.inputTitle}}</label>
+                    <input ng-model="input.value">
+                  </md-input-container>
+                </div>
 
-<!-- Button -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="singlebutton"></label>
-  <div class="col-md-4">
-    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
-  </div>
-</div>
+              </form>
+            </div>
+          </md-content>
 
-</fieldset>
-</form>
+        </div>
+
+      </md-content>
+    </md-tab>
+  </md-tabs>
+ 
