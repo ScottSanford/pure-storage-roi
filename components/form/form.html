@@ -1,48 +1,74 @@
-<menu-header></menu-header>
+<toolbar></toolbar>
 
-<div id="calculator-container">
-  <md-tabs md-dynamic-height class="padding-top-20">
+<div layout="row" flex>
 
-    <md-tab ng-repeat="tab in tabs" label="{{tab.title}}">
-      <md-content class="md-padding">
+    <md-sidenav md-component-id="left" 
+                md-is-locked-open="$mdMedia('gt-sm')" 
+                layout-gt-sm="column"
+                md-whiteframe="2"
+                flex-gt-sm="20">
 
-        <div ng-repeat="t in tab.categories">
-          
-          <md-toolbar class="tab-color">
-            <div class="md-toolbar-tools tab-color">
-              <h2>
-                <span>{{t.subTitle}}</span>
-              </h2>
-              <span flex></span>
+        <md-toolbar class="md-theme-indigo">
+          <h1 class="md-toolbar-tools">Menu</h1>
+        </md-toolbar>
+
+        <md-content layout-margin>
+        <md-list>
+          <md-list-item class="md-2-line">
+            <div class="md-list-item-text" ui-sref="form">
+              <h3>Customer Survey</h3>
             </div>
-          </md-toolbar>
-
-          <md-content>
-            
-            <div ng-repeat="input in t.inputs">
-              <form name="userForm">
-
-                <div layout-gt-sm="row">
-                  <md-input-container class="md-block" flex-gt-sm>
-                    <label>{{input.inputTitle}}</label>
-                    <input ng-if="input.type !== 'boolean'" ng-model="input.value">
-                    <md-switch class="md-primary" ng-if="input.type === 'boolean'" ng-model="input.value">
-                      <span yes-no="input.value"></span>
-                    </md-switch>
-                  </md-input-container>
-
-                </div>
-
-              </form>
+          </md-list-item>
+          <md-list-item class="md-2-line">
+            <div class="md-list-item-text" ui-sref="results">
+              <h3>Results</h3>
             </div>
-            
-          </md-content>
-
-        </div>
-
+          </md-list-item>
+        </md-list>
+            <md-button ng-click="closeInteractive()" class="md-accent">
+              Quit Application
+            </md-button>
       </md-content>
-    </md-tab>
-  </md-tabs>
-</div>
 
- 
+    </md-sidenav>
+    
+    <md-content flex>
+    <md-tabs class="heightyo">
+        <md-tab ng-repeat="tab in tabs" label="{{tab.title}}">
+          <md-content class="md-padding">
+
+            <div ng-repeat="t in tab.categories">
+              
+              <md-toolbar>
+                <div class="md-toolbar-tools">
+                  <h2>
+                    <span>{{t.subTitle}}</span>
+                  </h2>
+                  <span flex></span>
+                </div>
+              </md-toolbar>
+
+              <md-content>
+                
+                  <form name="userForm">
+                    <div layout="row" class="rowwrapyo">
+                          <md-input-container ng-repeat="input in t.inputs" class="md-block" flex="50">
+                            <label>{{input.inputTitle}}</label>
+                            <input ng-if="input.type !== 'boolean'" ng-model="input.value">
+                            <md-switch class="md-primary" ng-if="input.type === 'boolean'" ng-model="input.value">
+                              <span yes-no="input.value"></span>
+                            </md-switch>
+                          </md-input-container>
+                    </div>
+                  </form>
+                
+              </md-content>
+
+            </div>
+
+          </md-content>
+        </md-tab>
+    </md-tabs>
+    </md-content>
+
+</div>

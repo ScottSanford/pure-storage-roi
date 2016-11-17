@@ -26,6 +26,30 @@ angular.module('pureStorageApp')
                     value: true
                   }
                 ]
+              },
+              {
+                subTitle: "Workload Mix",
+                inputs: [
+                  {
+                    inputTitle: 'Generic VSI',
+                    type: 'number', 
+                    value: null
+                  },
+                  {
+                    inputTitle: 'SQL Server',
+                    type: 'number'
+                  },
+                  {
+                    inputTitle: 'VDI',
+                    type: 'number', 
+                    value: null
+                  },
+                  {
+                    inputTitle: 'Oracle',
+                    type: 'number', 
+                    value: null
+                  }
+                ]
               }
           ]
         }, 

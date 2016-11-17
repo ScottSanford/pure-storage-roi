@@ -19,9 +19,9 @@
 	<link rel="stylesheet" href="common/css/styles.css">
 
 </head>
-<body>
+<body layout="column">
 
-	<div ui-view></div>
+	<div ui-view layout="column" style="height:100%"></div>
 
 	<!-- START: FRAMEWORKS -->
 	<script src="common/libs/jquery/dist/jquery.js"></script>
@@ -46,7 +46,8 @@
   	<script src="common/js/my-directives.js"></script>
 
 	<!-- START: CONTROLLERS -->
-  	<script src="components/form/form.js"></script>
+    <script src="components/form/form.js"></script>
+  	<script src="components/results/results.js"></script>
 
 
 </body>

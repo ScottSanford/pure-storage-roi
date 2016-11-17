@@ -29,6 +29,16 @@ angular.module("pureStorageApp", [
                           return TabData;
                         }
                     }
+                })
+                .state('results', {
+                    url: '/results',
+                    templateUrl: 'components/results/results.html', 
+                    controller: 'ResultsCtrl', 
+                    resolve: {
+                        tabs: function(TabData){
+                          return TabData;
+                        }
+                    }
                 });
 
     });

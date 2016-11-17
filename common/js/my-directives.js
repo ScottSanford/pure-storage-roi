@@ -1,6 +1,6 @@
 angular.module('myDirectives', [])
 
-.directive('menuHeader', function($location, $mdSidenav){
+.directive('toolbar', function($location, $mdSidenav){
 	return {
 
 		restrict: 'E', 
