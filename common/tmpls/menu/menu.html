@@ -1,10 +1,24 @@
 <md-toolbar layout="row" class="background-orange">
       <div class="md-toolbar-tools background-orange">
-        <md-button class="md-icon-button" aria-label="Menu" ng-click="openSideNav()" hide-gt-sm>
+        <md-button class="md-icon-button" aria-label="Menu" ng-click="openSideNav()">
           <i class="material-icons md-light">menu</i>
         </md-button>
         <span flex></span>
         <h2>Customer Survey</h2>
         <span flex></span>
+        <md-menu md-position-mode="target-right target">
+          <md-button class="md-icon-button" aria-label="Menu" ng-click="$mdOpenMenu($event)">
+            <i class="material-icons md-light">more_vert</i>
+          </md-button>
+          <md-menu-content width="4" >
+            <md-menu-item>
+              <md-button ng-click="closeInteractive()">
+                  <div layout="row" flex>
+                    <p flex>Quit Application</p>
+                  </div>
+              </md-button>
+            </md-menu-item>
+          </md-menu-content>
+        </md-menu>
       </div>
 </md-toolbar>

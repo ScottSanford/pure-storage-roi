@@ -22,7 +22,7 @@ angular.module('myDirectives', [])
 
 .directive('yesNo', function() {
     return {
-        template: '<span>{{ yesNo ? "yes" : "no" }}</span>',
+        template: '<span>{{ yesNo ? "Yes" : "No" }}</span>',
         scope: {
             yesNo: '='
         }

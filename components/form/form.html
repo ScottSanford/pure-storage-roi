@@ -3,12 +3,10 @@
 <div layout="row" flex>
 
     <md-sidenav md-component-id="left" 
-                md-is-locked-open="$mdMedia('gt-sm')" 
                 layout-gt-sm="column"
-                md-whiteframe="2"
-                flex-gt-sm="20">
+                md-whiteframe="4">
 
-        <md-toolbar class="md-theme-indigo">
+        <md-toolbar class="color-blue">
           <h1 class="md-toolbar-tools">Menu</h1>
         </md-toolbar>
 
@@ -25,15 +23,13 @@
             </div>
           </md-list-item>
         </md-list>
-            <md-button ng-click="closeInteractive()" class="md-accent">
-              Quit Application
-            </md-button>
+
       </md-content>
 
     </md-sidenav>
     
     <md-content flex>
-    <md-tabs class="heightyo">
+    <md-tabs class="heightyo" md-stretch-tabs="always">
         <md-tab ng-repeat="tab in tabs" label="{{tab.title}}">
           <md-content class="md-padding">
 
@@ -50,17 +46,32 @@
 
               <md-content>
                 
-                  <form name="userForm">
                     <div layout="row" class="rowwrapyo">
-                          <md-input-container ng-repeat="input in t.inputs" class="md-block" flex="50">
-                            <label>{{input.inputTitle}}</label>
+                          <md-input-container ng-repeat="input in t.inputs" 
+                                              class="md-block" 
+                                              flex="50"
+                                              ng-hide="t.subTitle === 'Pure Configuration Inputs' || t.subTitle === 'Costs'">
+                            <label class="form-label">{{input.inputTitle}}</label>
                             <input ng-if="input.type !== 'boolean'" ng-model="input.value">
                             <md-switch class="md-primary" ng-if="input.type === 'boolean'" ng-model="input.value">
                               <span yes-no="input.value"></span>
                             </md-switch>
                           </md-input-container>
+
+
                     </div>
-                  </form>
+
+                    <!-- CONGIG LIST -->
+                    <md-table-container ng-show="t.subTitle === 'Pure Configuration Inputs' || t.subTitle === 'Costs'">
+                      <table md-table>
+                        <tbody md-body>
+                          <tr md-row ng-repeat="input in t.inputs">
+                            <td md-cell>{{input.inputTitle}}</td>
+                            <td md-cell>{{input.value}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </md-table-container>
                 
               </md-content>
 

@@ -4,7 +4,8 @@ angular.module("pureStorageApp", [
         'angAccordion', 
         'ngMaterial', 
         'ngMdIcons', 
-        'myDirectives'
+        'myDirectives', 
+        'md.data.table'
     ])
 
     .config(function ($compileProvider, $stateProvider, $urlRouterProvider, $mdIconProvider) { 

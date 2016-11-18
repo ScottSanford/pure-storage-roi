@@ -1,20 +1,46 @@
 <toolbar></toolbar>
 
-<div layout="row">
-	<span flex></span>
+<div layout="row" flex>
+
+    <md-sidenav md-component-id="left" 
+                layout-gt-sm="column"
+                md-whiteframe="4">
+
+        <md-toolbar class="color-blue">
+          <h1 class="md-toolbar-tools">Menu</h1>
+        </md-toolbar>
+
+        <md-content layout-margin>
+        <md-list>
+          <md-list-item class="md-2-line">
+            <div class="md-list-item-text" ui-sref="form">
+              <h3>Customer Survey</h3>
+            </div>
+          </md-list-item>
+          <md-list-item class="md-2-line">
+            <div class="md-list-item-text" ng-click="getResults()">
+              <h3>Results</h3>
+            </div>
+          </md-list-item>
+        </md-list>
+
+      </md-content>
+
+    </md-sidenav>
+
 	<div flex-xs flex-gt-xs="40">
 		<md-card>
-		    <img src="common/img/pure-storage.jpg" class="md-card-image" alt="Washed Out">
+		    <img src="common/img/pure-storage.jpg" class="md-card-image results-image" alt="TCO Builder">
 		    <md-card-title>
 		      <md-card-title-text>
-		        <span class="md-headline">Here is your Presentation</span>
+		        <span class="md-headline">Your TCO slides are ready!</span>
 		      </md-card-title-text>
 		    </md-card-title>
 		    <md-card-actions layout="column" layout-align="start">
-		      <md-button>Get Presentation</md-button>
+		      <md-button>Go to TCO Slide(s)</md-button>
 		    </md-card-actions>
 		</md-card>
 	</div>
-	<span flex></span>
+
 </div>
 

@@ -1,6 +1,6 @@
 angular.module('pureStorageApp')
 
-.controller('FormCtrl', function($scope, TabData, $mdSidenav){
+.controller('FormCtrl', function($scope, TabData, $mdSidenav, Mfly){
 
 	var data = TabData.customerSurvey;
 	$scope.tabs = data;
@@ -9,20 +9,14 @@ angular.module('pureStorageApp')
 	    $mdSidenav('left').toggle();
 	};
 
-	// Just some manual logic of the Excel Sheet
-	var flashArrayInUse = 'FlashArray//m';
-	var flashArrayGen   = 'FlashArray//m';
+	var key = 'cat';
+	var value = {name: 'Jasmine', age: 23};
 
-	var sumTotalUsableCapacity = 'someNumber' // int;
-	var YearOnePureStorageEffectiveTB = 'someNumber'; // int
-
-	if (flashArrayInUse == flashArrayGen) {
-		if (sumTotalUsableCapacity == 0) {
-			return 0;
-		} else{
-			var dataReduction = YearOnePureStorageEffectiveTB/sumTotalUsableCapacity;
-			return dataReduction;
-		}
+	$scope.getResults = function() {
+		Mfly.getSyncedValue(key, value).then(function(data){
+			console.log(data);
+		});
+		
 	}
 
 

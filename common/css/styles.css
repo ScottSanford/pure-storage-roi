@@ -2,8 +2,37 @@ html, body {
 	height:100%;
 }
 
+md-toolbar:not(.md-menu-toolbar) {
+	background-color:#73838D;
+}
+
 .background-orange {
 	background-color: #fe5000;
+}
+
+.content-background-color {
+	background-color: #F3F2F2;
+}
+
+md-tabs .md-tab.md-active {
+	color:#058ED9;
+}
+
+.form-label {
+	color:#058ED9;
+}
+
+.form-label:focused {
+	color:#034E77;
+}
+
+md-input-container .md-input {
+	border-color: rgba(0,0,0,0.25);
+}
+
+md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+	border-color:#034E77;
+	color:#034E77;
 }
 
 .heightyo{
@@ -12,6 +41,27 @@ html, body {
 
 .rowwrapyo {
 	flex-flow:row wrap;
+	padding:15px;
+}
+
+
+.config-item {
+	font-size:14px;
+}
+
+.config-title {
+	font-weight:bold;
+}
+
+
+/*Results Page*/
+.results-image {
+	width:250px;
+	margin:0 auto;
+}
+
+.md-headline {
+	text-align: center;
 }
 
 @media (max-width:600px) {
