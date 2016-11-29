@@ -18,7 +18,7 @@
             </div>
           </md-list-item>
           <md-list-item class="md-2-line">
-            <div class="md-list-item-text" ui-sref="results">
+            <div class="md-list-item-text" ng-click="getResults()">
               <h3>Results</h3>
             </div>
           </md-list-item>
@@ -27,59 +27,115 @@
       </md-content>
 
     </md-sidenav>
-    
+
     <md-content flex>
     <md-tabs class="heightyo" md-stretch-tabs="always">
-        <md-tab ng-repeat="tab in tabs" label="{{tab.title}}">
-          <md-content class="md-padding">
-
-            <div ng-repeat="t in tab.categories">
-              
-              <md-toolbar>
+      <md-tab label="General">
+        <md-content class="md-padding">
+            <!-- START: GENERAL INPUTS -->
+            <md-toolbar>
                 <div class="md-toolbar-tools">
                   <h2>
-                    <span>{{t.subTitle}}</span>
+                    <span>Across All Workloads</span>
                   </h2>
                   <span flex></span>
                 </div>
-              </md-toolbar>
+            </md-toolbar>
 
-              <md-content>
-                
-                    <div layout="row" class="rowwrapyo">
-                          <md-input-container ng-repeat="input in t.inputs" 
-                                              class="md-block" 
-                                              flex="50"
-                                              ng-hide="t.subTitle === 'Pure Configuration Inputs' || t.subTitle === 'Costs'">
-                            <label class="form-label">{{input.inputTitle}}</label>
-                            <input ng-if="input.type !== 'boolean'" ng-model="input.value">
-                            <md-switch class="md-primary" ng-if="input.type === 'boolean'" ng-model="input.value">
-                              <span yes-no="input.value"></span>
-                            </md-switch>
-                          </md-input-container>
-
-
+            <md-content>
+              <div layout="row">
+                <md-input-container flex="50">
+                    <label>Minimum Year 1 Capacity Required (Effective TBs)</label>
+                    <input required name="clientName" ng-model="project.clientName">
+                    <div ng-messages="projectForm.clientName.$error">
+                      <div ng-message="required">This is required.</div>
                     </div>
+                </md-input-container>
 
-                    <!-- CONGIG LIST -->
-                    <md-table-container ng-show="t.subTitle === 'Pure Configuration Inputs' || t.subTitle === 'Costs'">
-                      <table md-table>
-                        <tbody md-body>
-                          <tr md-row ng-repeat="input in t.inputs">
-                            <td md-cell>{{input.inputTitle}}</td>
-                            <td md-cell>{{input.value}}</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </md-table-container>
-                
-              </md-content>
+                <md-input-container flex="50">
+                  <label>Annual Storage Expansion Growth Rate (CAGR) %</label>
+                  <md-select name="type" ng-model="project.type" required>
+                    <md-option value="app">20%</md-option>
+                    <md-option value="web">25%</md-option>
+                    <md-option value="mobile">30%</md-option>
+                  </md-select>
+                </md-input-container>
+              </div>
 
-            </div>
+              <div layout="row">
+                <md-switch class="md-primary" ng-model="factorProvision.switch">
+                  Factor in This Provisioning: <span yes-no="factorProvision.switch"></span>
+                </md-switch>
+              </div>
+            </md-content>
 
-          </md-content>
-        </md-tab>
+            <!-- START: WORKLOAD MIX -->
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                  <h2>
+                    <span>Workload Mix</span>
+                  </h2>
+                  <span flex></span>
+                </div>
+            </md-toolbar>
+
+            <md-content>
+
+              <div layout="row">
+                <md-input-container flex="50">
+                    <label>Generic VSI</label>
+                    <input required name="clientName" ng-model="project.clientName">
+                    <div ng-messages="projectForm.clientName.$error">
+                      <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container flex="50">
+                  <label>SQL Server</label>
+                  <input required name="clientName" ng-model="project.clientName">
+                    <div ng-messages="projectForm.clientName.$error">
+                      <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+              </div>
+
+              <div layout="row">
+                <md-input-container flex="50">
+                    <label>VDI</label>
+                    <input required name="clientName" ng-model="project.clientName">
+                    <div ng-messages="projectForm.clientName.$error">
+                      <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container flex="50">
+                  <label>Oracle</label>
+                  <input required name="clientName" ng-model="project.clientName">
+                    <div ng-messages="projectForm.clientName.$error">
+                      <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+              </div>
+            </md-content>
+        </md-content>
+      </md-tab>
+      <md-tab label="Configurations">
+        <md-content class="md-padding">
+          <h1 class="md-display-2">Tab Two</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
+          <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
+          <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+        </md-content>
+      </md-tab>
+      <md-tab label="Costs">
+        <md-content class="md-padding">
+          <h1 class="md-display-2">Tab Three</h1>
+          <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+        </md-content>
+      </md-tab>
     </md-tabs>
-    </md-content>
+  </md-content>
+    
+    
 
 </div>

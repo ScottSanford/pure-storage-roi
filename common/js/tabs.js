@@ -13,12 +13,13 @@ angular.module('pureStorageApp')
                 inputs: [
                   {
                     inputTitle: 'Minimum Year 1 Capacity Required (Effective TBs)',
-                    type: 'number', 
-                    value: null
+                    type: 'text', 
+                    value: 3
                   },
                   {
-                    inputTitle: 'Annual Storage Expansion Growth Rate (CAGR)',
-                    type: 'text'
+                    inputTitle: 'Annual Storage Expansion Growth Rate (CAGR) %',
+                    type: 'number', 
+                    value: 20
                   },
                   {
                     inputTitle: 'Factor in Thin Provisioning?',
@@ -32,21 +33,21 @@ angular.module('pureStorageApp')
                 inputs: [
                   {
                     inputTitle: 'Generic VSI',
-                    type: 'number', 
+                    type: 'text', 
                     value: null
                   },
                   {
                     inputTitle: 'SQL Server',
-                    type: 'number'
+                    type: 'text'
                   },
                   {
                     inputTitle: 'VDI',
-                    type: 'number', 
+                    type: 'text', 
                     value: null
                   },
                   {
                     inputTitle: 'Oracle',
-                    type: 'number', 
+                    type: 'text', 
                     value: null
                   }
                 ]

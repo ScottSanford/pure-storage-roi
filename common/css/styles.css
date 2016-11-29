@@ -41,7 +41,7 @@ md-input-container:not(.md-input-invalid).md-input-focused .md-input {
 
 .rowwrapyo {
 	flex-flow:row wrap;
-	padding:15px;
+	padding:15px 0px 0px;
 }
 
 

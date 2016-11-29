@@ -1,22 +1,36 @@
 angular.module('pureStorageApp')
 
-.controller('FormCtrl', function($scope, TabData, $mdSidenav, Mfly){
+.controller('FormCtrl', function($scope, $mdSidenav, Mfly){
 
-	var data = TabData.customerSurvey;
-	$scope.tabs = data;
+	$scope.factorProvision = {
+		switch: true
+	};
+	
 
 	$scope.openLeftMenu = function() {
 	    $mdSidenav('left').toggle();
 	};
 
-	var key = 'cat';
-	var value = {name: 'Jasmine', age: 23};
 
 	$scope.getResults = function() {
-		Mfly.getSyncedValue(key, value).then(function(data){
-			console.log(data);
+
+		var key = 'pureValues';
+		var value = {
+			pureValues: data[0].categories
+		};
+
+		mflyCommands.putSyncedValue(key, value).done(function(data, status) {
+			console.log("Success :: ", data, status);
 		});
-		
+
+		mflyCommands.getSyncedValues()
+		    .done(function(data, status) {
+		        // Success! Do something.
+		        console.log(data);
+		    })
+		    .fail(function(deferred, status) {
+		        // Error! Do something.
+		    });
 	}
 
 
